@@ -1,0 +1,16 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<b>Observables Demo</b>
+
+<h4 style="margin-bottom: 0">Values:</h4>
+
+<div *ngFor="let value of numArray"> {{ value }}</div>
+<br/>
+
+<div  style="margin-bottom: 0;font-weight: bold;">Errors: {{ errors }}</div>
+<br/>
+
+<div style="margin-bottom: 0;font-weight:bold;">Finished: {{ finished }}</div>
+<br/>
+
+<button style="margin-top: 2rem;" (click)="fetchData()">Fetch Data</button>
+

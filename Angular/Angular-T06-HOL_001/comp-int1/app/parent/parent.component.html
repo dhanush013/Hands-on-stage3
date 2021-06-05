@@ -1,0 +1,7 @@
+<div style="border: 1px solid black;width:500px;">
+    <h3>Child Component called under Parent: {{cmessage}}</h3>
+    <br/><br/>
+</div>
+<br/>
+<app-child (messageEvent)="receiveMessage($event)"></app-child>
+<br/>

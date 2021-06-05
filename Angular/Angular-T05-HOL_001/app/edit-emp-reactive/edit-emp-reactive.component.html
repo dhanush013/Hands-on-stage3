@@ -1,0 +1,119 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<div class="container" >
+<h1>New Employee!! Register Here</h1>
+
+<form [formGroup]="studentForm" (ngSubmit)="FormValues(studentForm.value)">
+<div class="form-group">
+    <label for="StudentName">
+        Employee Name
+    </label>
+    <input type="text" id="StudentName" name="StudentName" 
+    placeholder="Enter Name" class="form-control" formControlName="studentName">
+    <div class="text-danger" 
+    *ngIf="studentForm.controls['studentName'].touched && 
+    studentForm.controls['studentName'].invalid">
+    <div *ngIf="studentForm.controls['studentName'].errors.required">
+        * Student Name Required
+    </div>
+    <div *ngIf="studentForm.controls['studentName'].errors.minlength">
+        * Student Name should be 3 characters minimum long
+    </div>
+</div>
+</div>
+<br/>
+
+
+<br/>
+<div class="form-group">
+    <label for="MobileNumber">
+        Mobile Number  :
+    </label>
+    <input type="text" id="MobileNumber" name="MobileNumber" 
+     class="form-control" formControlName="mobileNumer">
+    
+    <div class="text-danger" 
+    *ngIf="studentForm.controls['mobileNumer'].touched && 
+    studentForm.controls['mobileNumer'].invalid">
+    <div *ngIf="studentForm.controls['mobileNumer'].errors.required">
+        *  Mobile Number  Required
+    </div>
+    <div *ngIf="studentForm.controls['mobileNumer'].errors.pattern">
+        * Invalid Mobile Number
+    </div>
+</div>
+</div>
+
+<br/>
+<b>Enter Gender:</b>
+<div class="form-check-inline">
+    <label class="form-check-label">
+    <input type="radio" name="gender" class="form-check-input" 
+    id="Male" value="Male" formControlName="gender"><b>Male</b>
+    </label>    
+</div>
+<div class="form-check-inline">
+    <label class="form-check-label">
+    <input type="radio" name="gender" class="form-check-input" 
+    id="Female" value="Female" formControlName="gender"><b>Female</b>
+    </label>    
+</div>
+<br/>
+<br/>
+<div class="text-danger" *ngIf="studentForm.controls['gender'].touched && studentForm.controls['gender'].invalid">
+<div class="text-danger" [hidden]="!studentForm.controls['gender'].hasErrors('required')">
+    * Please select a Gender
+</div>
+</div>
+
+<br/><br/>
+<div class="form-group">
+    <label for="Technologies">
+        Permanent : &nbsp;
+    </label>
+    <input type="checkbox" id="Technologies" name="Technologies"  formControlName="technology" required>
+   
+   <div class="text-danger" *ngIf="studentForm.controls['technology'].touched && studentForm.controls['technology'].invalid">
+    <div class="text-danger" [hidden]="!studentForm.controls['technology'].hasErrors('required')">
+        * Please select a Technology
+    </div>
+    </div>
+   
+</div>
+
+<input type="submit" id="submitBtn" value="Register" class="btn btn-success">
+</form>
+<br/><br/>
+<div class="alert alert-success">
+<h1>Employee Details </h1>
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <th>Employee Name</th>        
+        <th>Mobile Number</th>
+        <th>Gender</th>
+        <th>Permanent</th>
+    </tr>
+    <tr>
+        <td>
+            {{studentName|uppercase}}
+        </td>       
+        <td>
+            {{mobileNumer}}
+        </td>
+        <td>
+            {{gender|uppercase}}
+        </td>
+        <td>
+            {{technology}}
+        </td>
+    </tr>
+</table>
+</div>
+
+
+
+

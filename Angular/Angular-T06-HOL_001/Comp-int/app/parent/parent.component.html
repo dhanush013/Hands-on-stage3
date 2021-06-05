@@ -1,0 +1,13 @@
+<div style="border:1px solid black;width:900px">
+    <h3>Message under Parent Component:{{parentMessage}}</h3>
+    <br/>
+    <h3>Message under Parent Component called from child using viewchild: {{childInfo}} </h3>
+    <br/>
+    
+
+</div>
+<br/><br/>
+<app-child [childMessage]="parentMessage"></app-child>
+<br/>
+
+
